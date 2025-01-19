@@ -1,13 +1,54 @@
-document.getElementById("edit-btn").addEventListener("click", function() {
-    var resumeInfo = document.getElementById("resume-info");
+// Установить тему из localStorage при загрузке страницы
+const savedTheme = localStorage.getItem('theme') || 'light';
+document.documentElement.setAttribute('data-theme', savedTheme);
 
+// Переключение темы
+const themeToggle = document.getElementById('theme-toggle');
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    });
+}
+
+// Получение откликов из localStorage
+const appliedJobsList = document.getElementById("applied-jobs");
+const appliedJobs = JSON.parse(localStorage.getItem("appliedJobs")) || [];
+
+// Отображение списка откликов
+function renderAppliedJobs() {
+    appliedJobsList.innerHTML = ""; // Очистить текущий список
+    if (appliedJobs.length === 0) {
+        appliedJobsList.innerHTML = "<li class='list-group-item'>Вы ещё не откликнулись ни на одну вакансию.</li>";
+    } else {
+        appliedJobs.forEach((job) => {
+            const listItem = document.createElement("li");
+            listItem.classList.add("list-group-item");
+            listItem.textContent = job;
+            appliedJobsList.appendChild(listItem);
+        });
+    }
+}
+
+// Отображение откликов при загрузке страницы
+renderAppliedJobs();
+
+// Обработка кнопки редактирования резюме
+document.getElementById("edit-btn").addEventListener("click", function () {
+    const resumeInfo = document.getElementById("resume-info");
+    const editButton = document.getElementById("edit-btn");
+
+    editButton.style.display = "none";
     resumeInfo.style.display = 'none';
 
-    var editForm = document.createElement('div');
+    // Создать форму для редактирования резюме
+    const editForm = document.createElement('div');
     editForm.classList.add('edit-form');
 
     editForm.innerHTML = `
-        <h3>Редактировать резюме</h3>
         <form id="edit-resume-form">
             <div class="mb-3">
                 <label for="edit-name" class="form-label">Имя</label>
@@ -25,32 +66,45 @@ document.getElementById("edit-btn").addEventListener("click", function() {
                 <label for="edit-experience" class="form-label">Опыт</label>
                 <input type="text" class="form-control" id="edit-experience" value="${document.getElementById('experience').innerText}" required>
             </div>
-            <button type="submit" class="btn btn-success">Сохранить изменения</button>
-            <button type="button" class="btn btn-secondary mt-2" id="cancel-btn">Отменить</button>
+            <div class="button-group">
+                <button type="submit" class="btn btn-success">Сохранить изменения</button>
+                <button type="button" class="btn btn-secondary" id="cancel-btn">Отменить</button>
+            </div>
         </form>
     `;
 
+    // Добавить форму под информацией о резюме
     resumeInfo.parentNode.appendChild(editForm);
 
-    document.getElementById("cancel-btn").addEventListener("click", function() {
-        // Восстанавливаем информацию и скрываем форму редактирования
-        resumeInfo.style.display = 'block';
+    // Обработка кнопки "Отменить"
+    document.getElementById("cancel-btn").addEventListener("click", function () {
+        // Удалить форму
         editForm.remove();
+
+        // Показать информацию о резюме
+        resumeInfo.style.display = "block";
+
+        // Показать кнопку "Редактировать резюме"
+        editButton.style.display = "block";
     });
 
-    document.getElementById("edit-resume-form").addEventListener("submit", function(event) {
+    // Обработка сохранения изменений
+    document.getElementById("edit-resume-form").addEventListener("submit", function (event) {
         event.preventDefault();
 
-        document.getElementById('name').innerText = document.getElementById('edit-name').value;
-        document.getElementById('email').innerText = document.getElementById('edit-email').value;
-        document.getElementById('skills').innerText = document.getElementById('edit-skills').value;
-        document.getElementById('experience').innerText = document.getElementById('edit-experience').value;
+        // Обновить данные резюме
+        document.getElementById("name").innerText = document.getElementById("edit-name").value;
+        document.getElementById("email").innerText = document.getElementById("edit-email").value;
+        document.getElementById("skills").innerText = document.getElementById("edit-skills").value;
+        document.getElementById("experience").innerText = document.getElementById("edit-experience").value;
 
-        resumeInfo.style.display = 'block';
+        // Удалить форму
         editForm.remove();
-    });
 
-    document.getElementById('view-jobs-btn').addEventListener('click', function() {
-        window.location.href = 'job-list.html';
+        // Показать информацию о резюме
+        resumeInfo.style.display = "block";
+
+        // Показать кнопку "Редактировать резюме"
+        editButton.style.display = "block";
     });
 });
