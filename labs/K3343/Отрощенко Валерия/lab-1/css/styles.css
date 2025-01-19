@@ -7,6 +7,7 @@
     --applied-list-background: #f8f9fa;
     --applied-list-text: #495057;
     --applied-list-border: #ddd;
+    --icon-color: #121212;
 }
 
 [data-theme="dark"] {
@@ -18,6 +19,7 @@
     --applied-list-background: #1e1e1e;
     --applied-list-text: #dcdcdc;
     --applied-list-border: #333;
+    --icon-color: #ffffff;
 }
 
 body {
@@ -146,4 +148,42 @@ body {
 #applied-jobs .list-group-item:hover {
     background-color: var(--applied-list-text);
     color: var(--applied-list-background);
+}
+
+.theme-icon {
+    width: 12px;
+    height: 12px;
+    fill: var(--icon-color);
+    transition: fill 0.3s;
+}
+
+/* Стили для кнопки переключения темы */
+.theme-toggle-btn {
+    background-color: transparent; /* Убрать фон кнопки */
+    color: var(--icon-color);
+    border: none; /* Убрать границы */
+    padding: 5px; /* Уменьшить отступы */
+    cursor: pointer; /* Указатель мыши при наведении */
+    display: inline-flex; /* Центрирование содержимого */
+    align-items: center; /* Вертикальное выравнивание */
+    justify-content: center; /* Горизонтальное выравнивание */
+    border-radius: 50%; /* Круглая кнопка */
+    transition: transform 0.2s; /* Анимация нажатия */
+}
+
+.theme-toggle-btn:hover {
+    transform: scale(1.1); /* Увеличение при наведении */
+}
+
+.theme-toggle-btn .icon {
+    width: 26px; /* Ширина иконки */
+    height: 26px; /* Высота иконки */
+}
+
+#edit-btn .icon {
+    width: 26px; /* Размер иконки */
+    height: 26px;
+    margin-right: 8px; /* Отступ между иконкой и текстом */
+    vertical-align: middle; /* Выравнивание иконки по центру текста */
+    fill: currentColor; /* Наследование цвета текста кнопки */
 }

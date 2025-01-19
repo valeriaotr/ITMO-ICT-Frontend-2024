@@ -8,11 +8,19 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+<!-- Подключение спрайта -->
+<object data="sprite.svg" type="image/svg+xml" style="display: none;"></object>
+
 <header class="hero-section" role="banner">
     <div class="container text-center">
         <h1 class="hero-title">Личный кабинет</h1>
         <p class="hero-subtitle">Управляйте своим профилем и резюме.</p>
-        <button id="theme-toggle" class="btn btn-secondary mt-3" aria-label="Переключить тему">Сменить тему</button>
+        <!-- Кнопка для смены темы -->
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Переключить тему">
+            <svg class="icon" role="img" aria-label="Светлая тема">
+                <use href="sprite.svg#icon-light-mode"></use>
+            </svg>
+        </button>
     </div>
 </header>
 
@@ -30,7 +38,12 @@
                     <p><strong>Навыки:</strong> <span id="skills">Веб-разработка, HTML, CSS, JavaScript</span></p>
                     <p><strong>Опыт:</strong> <span id="experience">3 года</span></p>
                 </div>
-                <button class="btn btn-primary mt-3" id="edit-btn" role="button" aria-label="Редактировать резюме">Редактировать резюме</button>
+                <button class="btn btn-primary mt-3" id="edit-btn" role="button" aria-label="Редактировать резюме">
+                    <svg class="icon" role="img" aria-label="Редактировать">
+                        <use href="sprite.svg#icon-edit"></use>
+                    </svg>
+                    Редактировать резюме
+                </button>
             </div>
 
             <div class="applications mt-5" role="region" aria-labelledby="applications-title">
