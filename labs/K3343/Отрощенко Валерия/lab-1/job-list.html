@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,55 +10,57 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-<header class="hero-section">
+<header class="hero-section" role="banner">
     <div class="container text-center">
         <h1 class="hero-title">Список вакансий</h1>
         <p class="hero-subtitle">Просматривайте актуальные предложения работы.</p>
     </div>
 </header>
 
-<section class="job-list-section py-5">
-    <div class="container">
-        <h2 class="section-title text-center">Все вакансии</h2>
-        <p class="section-subtitle text-center">Мы собрали лучшие вакансии для вас.</p>
+<main>
+    <section class="job-list-section py-5" role="region" aria-labelledby="job-list">
+        <div class="container">
+            <h2 id="job-list" class="section-title text-center">Все вакансии</h2>
+            <p class="section-subtitle text-center">Мы собрали лучшие вакансии для вас.</p>
 
-        <!-- Вакансии -->
-        <div class="job-card p-4 bg-light rounded shadow-sm mt-4">
-            <h4>Frontend Developer</h4>
-            <p><strong>Компания:</strong> IT Solutions</p>
-            <p><strong>Зарплата:</strong> 120,000 руб.</p>
-            <p><strong>Локация:</strong> Москва</p>
-            <button class="btn btn-outline-primary btn-sm" data-job="Frontend Developer">Откликнуться</button>
-            <button class="btn btn-outline-secondary btn-sm mt-2 d-none already-applied" data-job="Frontend Developer">Вы уже откликнулись</button>
-            <button class="btn btn-outline-info btn-sm mt-2 btn-details" data-job="Frontend Developer">Подробнее</button>
+            <!-- Вакансии -->
+            <div class="job-card p-4 bg-light rounded shadow-sm mt-4" role="article" aria-labelledby="job-frontend">
+                <h4 id="job-frontend">Frontend Developer</h4>
+                <p><strong>Компания:</strong> IT Solutions</p>
+                <p><strong>Зарплата:</strong> 120,000 руб.</p>
+                <p><strong>Локация:</strong> Москва</p>
+                <button class="btn btn-outline-primary btn-sm" data-job="Frontend Developer" role="button" aria-label="Откликнуться на вакансию Frontend Developer">Откликнуться</button>
+                <button class="btn btn-outline-secondary btn-sm mt-2 d-none already-applied" data-job="Frontend Developer" role="button" aria-label="Вы уже откликнулись на вакансию Frontend Developer">Вы уже откликнулись</button>
+                <button class="btn btn-outline-info btn-sm mt-2 btn-details" data-job="Frontend Developer" role="button" aria-label="Подробнее о вакансии Frontend Developer">Подробнее</button>
+            </div>
+            <div class="job-card p-4 bg-light rounded shadow-sm mt-4" role="article" aria-labelledby="job-backend">
+                <h4 id="job-backend">Backend Developer</h4>
+                <p><strong>Компания:</strong> WebSoft</p>
+                <p><strong>Зарплата:</strong> 140,000 руб.</p>
+                <p><strong>Локация:</strong> Санкт-Петербург</p>
+                <button class="btn btn-outline-primary btn-sm" data-job="Backend Developer" role="button" aria-label="Откликнуться на вакансию Backend Developer">Откликнуться</button>
+                <button class="btn btn-outline-secondary btn-sm mt-2 d-none already-applied" data-job="Backend Developer" role="button" aria-label="Вы уже откликнулись на вакансию Backend Developer">Вы уже откликнулись</button>
+                <button class="btn btn-outline-info btn-sm mt-2 btn-details" data-job="Backend Developer" role="button" aria-label="Подробнее о вакансии Backend Developer">Подробнее</button>
+            </div>
+            <div class="job-card p-4 bg-light rounded shadow-sm mt-4" role="article" aria-labelledby="job-uiux">
+                <h4 id="job-uiux">UI/UX Designer</h4>
+                <p><strong>Компания:</strong> Design Studio</p>
+                <p><strong>Зарплата:</strong> 90,000 руб.</p>
+                <p><strong>Локация:</strong> Новосибирск</p>
+                <button class="btn btn-outline-primary btn-sm" data-job="UI/UX Designer" role="button" aria-label="Откликнуться на вакансию UI/UX Designer">Откликнуться</button>
+                <button class="btn btn-outline-secondary btn-sm mt-2 d-none already-applied" data-job="UI/UX Designer" role="button" aria-label="Вы уже откликнулись на вакансию UI/UX Designer">Вы уже откликнулись</button>
+                <button class="btn btn-outline-info btn-sm mt-2 btn-details" data-job="UI/UX Designer" role="button" aria-label="Подробнее о вакансии UI/UX Designer">Подробнее</button>
+            </div>
         </div>
-        </div>
-        <div class="job-card p-4 bg-light rounded shadow-sm mt-4">
-            <h4>Backend Developer</h4>
-            <p><strong>Компания:</strong> WebSoft</p>
-            <p><strong>Зарплата:</strong> 140,000 руб.</p>
-            <p><strong>Локация:</strong> Санкт-Петербург</p>
-            <button class="btn btn-outline-primary btn-sm" data-job="Backend Developer">Откликнуться</button>
-            <button class="btn btn-outline-secondary btn-sm mt-2 d-none already-applied" data-job="Backend Developer">Вы уже откликнулись</button>
-            <button class="btn btn-outline-info btn-sm mt-2 btn-details" data-job="Backend Developer">Подробнее</button>
-        </div>
-        <div class="job-card p-4 bg-light rounded shadow-sm mt-4">
-            <h4>UI/UX Designer</h4>
-            <p><strong>Компания:</strong> Design Studio</p>
-            <p><strong>Зарплата:</strong> 90,000 руб.</p>
-            <p><strong>Локация:</strong> Новосибирск</p>
-            <button class="btn btn-outline-primary btn-sm" data-job="UI/UX Designer">Откликнуться</button>
-            <button class="btn btn-outline-secondary btn-sm mt-2 d-none already-applied" data-job="UI/UX Designer">Вы уже откликнулись</button>
-            <button class="btn btn-outline-info btn-sm mt-2 btn-details" data-job="UI/UX Designer">Подробнее</button>
-        </div>
+    </section>
+    <div id="notification" class="alert alert-success d-none fixed-bottom mb-4 mx-auto" style="width: 300px;" role="status" aria-live="polite">
+        Вы успешно откликнулись на вакансию.
     </div>
-</section>
-<div id="notification" class="alert alert-success d-none fixed-bottom mb-4 mx-auto" style="width: 300px;">
-    Вы успешно откликнулись на вакансию.
-</div>
+</main>
 
-<footer class="footer bg-dark text-white py-4">
+<footer class="footer bg-dark text-white py-4" role="contentinfo">
     <div class="container text-center">
+        <p>&copy; 2025 Job Search. Все права защищены.</p>
     </div>
 </footer>
 

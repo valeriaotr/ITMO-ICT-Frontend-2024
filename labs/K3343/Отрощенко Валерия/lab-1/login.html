@@ -9,33 +9,35 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<section class="login-section py-5">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card shadow-lg border-0">
-                    <div class="card-body p-5">
-                        <h2 class="text-center mb-4">Вход</h2>
-                        <form id="login-form">
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" placeholder="Введите ваш email" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="password" class="form-label">Пароль</label>
-                                <input type="password" class="form-control" id="password" placeholder="Введите ваш пароль" required>
-                            </div>
-                            <button type="submit" class="btn btn-success w-100">Войти</button>
-                        </form>
-                        <p class="text-center mt-4">
-                            Нет аккаунта? <a href="register.html">Зарегистрироваться</a>
-                        </p>
+<main>
+    <section class="login-section py-5" role="region" aria-labelledby="login-title">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card shadow-lg border-0">
+                        <div class="card-body p-5">
+                            <h2 id="login-title" class="text-center mb-4">Вход</h2>
+                            <form id="login-form" aria-labelledby="login-title" role="form">
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Введите ваш email" required aria-required="true">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Пароль</label>
+                                    <input type="password" class="form-control" id="password" placeholder="Введите ваш пароль" required aria-required="true">
+                                </div>
+                                <button type="submit" class="btn btn-success w-100" role="button" aria-label="Войти в систему">Войти</button>
+                            </form>
+                            <p class="text-center mt-4">
+                                Нет аккаунта? <a href="register.html" aria-label="Перейти на страницу регистрации">Зарегистрироваться</a>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+</main>
 
 <style>
     /* Стили для страницы входа */

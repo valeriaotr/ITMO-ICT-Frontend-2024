@@ -10,45 +10,49 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-<header class="hero-section">
+<header class="hero-section" role="banner">
     <div class="container text-center">
         <h1 class="hero-title">Личный кабинет</h1>
         <p class="hero-subtitle">Управляйте своим профилем и резюме.</p>
     </div>
 </header>
 
-<section class="dashboard-section py-5">
-    <div class="container">
-        <h2 class="section-title text-center">Ваше резюме</h2>
-        <p class="section-subtitle text-center">Здесь вы можете редактировать своё резюме и просматривать отклики.</p>
+<main>
+    <section class="dashboard-section py-5" role="region" aria-labelledby="dashboard-title">
+        <div class="container">
+            <h2 id="dashboard-title" class="section-title text-center">Ваше резюме</h2>
+            <p class="section-subtitle text-center">Здесь вы можете редактировать своё резюме и просматривать отклики.</p>
 
-        <div class="resume-card mt-4 p-4 bg-light rounded shadow-sm">
-            <h3 class="mb-3">Информация о вас</h3>
-            <div id="resume-info">
-                <p><strong>Имя:</strong> <span id="name">Иван Иванов</span></p>
-                <p><strong>Email:</strong> <span id="email">ivan@example.com</span></p>
-                <p><strong>Навыки:</strong> <span id="skills">Веб-разработка, HTML, CSS, JavaScript</span></p>
-                <p><strong>Опыт:</strong> <span id="experience">3 года</span></p>
+            <div class="resume-card mt-4 p-4 bg-light rounded shadow-sm" role="article" aria-labelledby="resume-info-title">
+                <h3 id="resume-info-title" class="mb-3">Информация о вас</h3>
+                <div id="resume-info">
+                    <p><strong>Имя:</strong> <span id="name">Иван Иванов</span></p>
+                    <p><strong>Email:</strong> <span id="email">ivan@example.com</span></p>
+                    <p><strong>Навыки:</strong> <span id="skills">Веб-разработка, HTML, CSS, JavaScript</span></p>
+                    <p><strong>Опыт:</strong> <span id="experience">3 года</span></p>
+                </div>
+                <button class="btn btn-primary mt-3" id="edit-btn" role="button" aria-label="Редактировать резюме">Редактировать резюме</button>
             </div>
-            <button class="btn btn-primary mt-3" id="edit-btn">Редактировать резюме</button>
+
+            <!-- Отклики пользователя -->
+            <div class="applications mt-5" role="region" aria-labelledby="applications-title">
+                <h3 id="applications-title" class="section-title">Ваши отклики</h3>
+                <ul id="applied-jobs" class="list-group mt-3" role="list">
+                    <!-- Отклики будут динамически добавляться сюда с помощью JS -->
+                </ul>
+            </div>
         </div>
+    </section>
 
-        <!-- Отклики пользователя -->
-        <div class="applications mt-5">
-            <h3 class="section-title">Ваши отклики</h3>
-            <ul id="applied-jobs" class="list-group mt-3">
-                <!-- Отклики будут динамически добавляться сюда с помощью JS -->
-            </ul>
-        </div>
-    </div>
-</section>
+    <section class="action-buttons mt-4 text-center" role="region" aria-labelledby="actions-title">
+        <h3 id="actions-title" class="visually-hidden">Действия</h3>
+        <a href="job-list.html" class="btn btn-primary" id="view-jobs-btn" role="button" aria-label="Посмотреть вакансии">Посмотреть вакансии</a>
+    </section>
+</main>
 
-<section class="action-buttons mt-4 text-center">
-    <a href="job-list.html" class="btn btn-primary" id="view-jobs-btn">Посмотреть вакансии</a>
-</section>
-
-<footer class="footer bg-dark text-white py-4">
+<footer class="footer bg-dark text-white py-4" role="contentinfo">
     <div class="container text-center">
+        <p>&copy; 2025 Job Search. Все права защищены.</p>
     </div>
 </footer>
 

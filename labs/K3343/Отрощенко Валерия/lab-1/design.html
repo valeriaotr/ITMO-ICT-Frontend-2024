@@ -54,9 +54,9 @@
     </style>
 </head>
 <body>
-<div class="container">
-    <div class="job-details">
-        <h1>UI/UX Designer</h1>
+<main class="container">
+    <article class="job-details" role="region" aria-labelledby="job-title">
+        <h1 id="job-title">UI/UX Designer</h1>
         <p><strong>Компания:</strong> Design Studio</p>
         <p><strong>Зарплата:</strong> 90,000 руб.</p>
         <p><strong>Локация:</strong> Новосибирск</p>
@@ -80,10 +80,9 @@
             <li>Работа в дружной команде</li>
         </ul>
 
-        <a href="job-list.html" class="back-btn">Вернуться к вакансиям</a>
-    </div>
-</div>
-
+        <a href="job-list.html" class="back-btn" role="button" aria-label="Вернуться к списку вакансий">Вернуться к вакансиям</a>
+    </article>
+</main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
