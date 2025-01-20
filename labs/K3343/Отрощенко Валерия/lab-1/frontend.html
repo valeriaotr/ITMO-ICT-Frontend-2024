@@ -12,6 +12,7 @@
             --card-background: #ffffff;
             --primary-color: #007bff;
             --secondary-color: #495057;
+            --icon-color: #121212;
         }
 
         [data-theme="dark"] {
@@ -20,6 +21,7 @@
             --card-background: #1e1e1e;
             --primary-color: #1a73e8;
             --secondary-color: #9e9e9e;
+            --icon-color: #ffffff;
         }
 
         body {
@@ -69,15 +71,40 @@
             text-decoration: none;
         }
 
-        .back-btn:hover {
-            background-color: darken(var(--primary-color), 10%);
+        .theme-toggle-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: transparent;
+            border: 1px solid var(--secondary-color);
+            border-radius: 50%;
+            padding: 0;
+            margin-bottom: 20px; /* Отступ от верхнего элемента */
+            cursor: pointer;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+            color: var(--icon-color);
+        }
+
+        .theme-toggle-btn .icon {
+            width: 24px;
+            height: 24px;
         }
     </style>
 </head>
 <body>
+<!-- Подключение спрайта -->
+<object data="sprite.svg" type="image/svg+xml" style="display: none;"></object>
+
 <main class="container">
     <article class="job-details" role="region" aria-labelledby="job-title">
-        <button id="theme-toggle" class="btn btn-secondary mt-3" aria-label="Переключить тему">Сменить тему</button>
+        <!-- Кнопка для смены темы -->
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Переключить тему">
+            <svg class="icon" role="img" aria-label="Светлая тема">
+                <use href="sprite.svg#icon-light-mode"></use>
+            </svg>
+        </button>
         <h1 id="job-title">Frontend Developer</h1>
         <p><strong>Компания:</strong> IT Solutions</p>
         <p><strong>Зарплата:</strong> 120,000 руб.</p>
@@ -103,28 +130,15 @@
             <li>Возможности для профессионального роста</li>
         </ul>
 
-        <a href="job-list.html" class="back-btn" role="button" aria-label="Вернуться к списку вакансий">Вернуться к вакансиям</a>
+        <div class="button-group">
+            <button class="btn btn-outline-primary btn-sm" data-job="Frontend Developer" role="button" aria-label="Откликнуться на вакансию Frontend Developer">Откликнуться</button>
+            <button class="btn btn-outline-secondary btn-sm d-none already-applied" data-job="Frontend Developer" role="button" aria-label="Вы уже откликнулись на вакансию Frontend Developer">Вы уже откликнулись</button>
+            <button class="btn btn-outline-info btn-sm btn-back" data-job="Frontend Developer" role="button" aria-label="Вернуться к списку вакансий" onclick="window.location.href='job-list.html'">Вернуться к вакансиям</button>
+        </div>
     </article>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Установить тему из localStorage при загрузке страницы
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        document.documentElement.setAttribute('data-theme', savedTheme);
-
-        // Переключение темы
-        const themeToggle = document.getElementById('theme-toggle');
-
-        if (themeToggle) {
-            themeToggle.addEventListener('click', () => {
-                const currentTheme = document.documentElement.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                document.documentElement.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-            });
-        }
-    });
-</script>
+<script src="js/JobDetail.js"></script>
+<script src="js/change-mode.js"></script>
 </body>
 </html>
